@@ -1,2 +1,66 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="container">
+    <div class="most-cases-heading">
+        <h1>The 10 Countries with the most COVID-19 Cases</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Country</th>
+                <th scope="col">Confirmed Cases</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% i = 1 %>
+            <% for country in @mostCases %>
+                <tr>
+                    <th scope="row"><%= i %></th>
+                    <td><%= country["Country"] %></td>
+                    <td><%= country["TotalConfirmed"] %></td>
+                </tr>
+                <% i += 1%>
+            <% end %>
+        </tbody>
+    </table>
+
+    <br>
+    <hr>
+    <br>
+
+    <% for countryData in @recentCountryData %>
+        <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-6">
+            <div class="countryDetails">
+                <h2><%= countryData["Country"] %></h2>
+                <h4><%= Date.parse(countryData["Date"]).strftime("%Y-%m-%d") %></h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Confirmed</th>
+                            <th scope="col">Deaths</th>
+                            <th scope="col">Recovered</th>
+                            <th scope="col">Active</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><%= countryData["Confirmed"] %></th>
+                            <td><%= countryData["Deaths"]  %></td>
+                            <td><%= countryData["Recovered"] %></td>
+                            <td><%= countryData["Active"] %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <br>
+        </div>
+    <% end %>
+</div>
+
+
+
