@@ -27,38 +27,41 @@
     <br>
     <hr>
     <br>
-
+    <div class="country-details-heading">
+        <h1>Details of Individual Countries</h1>
+    </div>
     <% for countryData in @recentCountryData %>
         <div class="row">
-        <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
 
-        <div class="col-md-6">
-            <div class="countryDetails">
-                <h2><%= countryData["Country"] %></h2>
-                <h4><%= Date.parse(countryData["Date"]).strftime("%Y-%m-%d") %></h4>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Confirmed</th>
-                            <th scope="col">Deaths</th>
-                            <th scope="col">Recovered</th>
-                            <th scope="col">Active</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"><%= countryData["Confirmed"] %></th>
-                            <td><%= countryData["Deaths"]  %></td>
-                            <td><%= countryData["Recovered"] %></td>
-                            <td><%= countryData["Active"] %></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-8">
+                <div class="countryDetails">
+                    <h2><%= countryData["Country"] %></h2>
+                    <h4><%= Date.parse(countryData["Date"]).strftime("%Y-%m-%d") %></h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Confirmed</th>
+                                <th scope="col">Deaths</th>
+                                <th scope="col">Recovered</th>
+                                <th scope="col">Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><%= countryData["Confirmed"] %></th>
+                                <td><%= countryData["Deaths"]  %></td>
+                                <td><%= countryData["Recovered"] %></td>
+                                <td><%= countryData["Active"] %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <div class="col-md-2"></div>
+            <br>
         </div>
-        <div class="col-md-2"></div>
-        <br>
-        </div>
+        <hr>
     <% end %>
 </div>
 

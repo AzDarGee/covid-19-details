@@ -5,4 +5,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get static_pages_home_url
     assert_response :success
   end
+
+  test "should return array" do
+    get summaryURL
+    assert_response :success
+  end
+
 end
