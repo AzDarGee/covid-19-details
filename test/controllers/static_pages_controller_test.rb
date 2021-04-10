@@ -7,7 +7,9 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should return array" do
+    summaryURL = 'https://api.covid19api.com/summary'
     get summaryURL
+    puts summaryURL
     assert_response :success
   end
 
