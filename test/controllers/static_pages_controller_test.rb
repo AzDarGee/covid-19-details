@@ -1,4 +1,6 @@
 require "test_helper"
+require "net/http"
+require "json"
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
@@ -7,8 +9,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should return array" do
-    summaryURL = 'https://api.covid19api.com/summary'
-    get summaryURL
+    summaryURL = URI('https://api.covid19api.com/summary')
+    summary = JSON.parse(Net::HTTP.get(summaryURL))
     puts summaryURL
     assert_response :success
   end
